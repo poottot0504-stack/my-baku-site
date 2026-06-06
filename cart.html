@@ -13,21 +13,45 @@
 </header>
 
 <div class="cart">
-  カートの商品数：<span id="cart-count">0</span>個
+  <div id="cart-items"></div>
+  <hr>
+  <p>合計個数：<span id="cart-count">0</span>個</p>
+  <p>合計金額：<span id="cart-total">0</span>円</p>
 </div>
 
-<a href="shop.html" class="login-button">ショップに戻る</a>
+<a href="shop.html" class="login-button">← ショップに戻る</a>
 
 <script>
-let cartCount = localStorage.getItem("cartCount");
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-if (cartCount === null) {
-  cartCount = 0;
-} else {
-  cartCount = Number(cartCount);
+function showCart() {
+  const cartItems = document.getElementById("cart-items");
+  let totalCount = 0;
+  let totalPrice = 0;
+
+  cartItems.innerHTML = "";
+
+  if (cart.length === 0) {
+    cartItems.innerHTML = "<p>カートは空です。</p>";
+  }
+
+  cart.forEach(item => {
+    totalCount += item.quantity;
+    totalPrice += item.price * item.quantity;
+
+    cartItems.innerHTML += `
+      <p>
+        ${item.name} × ${item.quantity}
+        （${item.price * item.quantity}円）
+      </p>
+    `;
+  });
+
+  document.getElementById("cart-count").textContent = totalCount;
+  document.getElementById("cart-total").textContent = totalPrice;
 }
 
-document.getElementById("cart-count").textContent = cartCount;
+showCart();
 </script>
 
 </body>

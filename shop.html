@@ -13,7 +13,8 @@
 </header>
 
 <div class="cart">
-  🛒 カート：<span id="cart-count">0</span>個
+  🛒 カート：<span id="cart-count">0</span>個<br>
+  💴 合計：<span id="cart-total">0</span>円
 </div>
 
 <a href="cart.html" class="login-button">🛒 カートを見る</a>
@@ -24,40 +25,60 @@
     <img src="dog.jpg">
     <h3>ばくポストカード</h3>
     <p>¥300</p>
-    <button onclick="addCart()">カートに追加</button>
+    <button onclick="addCart('ばくポストカード', 300)">カートに追加</button>
   </div>
 
   <div class="card">
     <img src="dog2.jpg">
     <h3>ばくステッカー</h3>
     <p>¥300</p>
-    <button onclick="addCart()">カートに追加</button>
+    <button onclick="addCart('ばくステッカー', 300)">カートに追加</button>
   </div>
 </div>
 
 <script>
-let cartCount = localStorage.getItem("cartCount");
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-if (cartCount === null) {
-  cartCount = 0;
-} else {
-  cartCount = Number(cartCount);
+function updateCartDisplay() {
+  let totalCount = 0;
+  let totalPrice = 0;
+
+  cart.forEach(item => {
+    totalCount += item.quantity;
+    totalPrice += item.price * item.quantity;
+  });
+
+  document.getElementById("cart-count").textContent = totalCount;
+  document.getElementById("cart-total").textContent = totalPrice;
 }
 
-document.getElementById("cart-count").textContent = cartCount;
+function addCart(name, price) {
+  const existingItem = cart.find(item => item.name === name);
 
-function addCart() {
-  cartCount++;
-  localStorage.setItem("cartCount", cartCount);
-  document.getElementById("cart-count").textContent = cartCount;
-  alert("カートに追加しました！");
+  if (existingItem) {
+    existingItem.quantity++;
+  } else {
+    cart.push({
+      name: name,
+      price: price,
+      quantity: 1
+    });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartDisplay();
+  alert(name + "をカートに追加しました！");
 }
 
 function resetCart() {
-  cartCount = 0;
-  localStorage.setItem("cartCount", cartCount);
-  document.getElementById("cart-count").textContent = cartCount;
+  if (confirm("カートを空にしますか？")) {
+    cart = [];
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartDisplay();
+  }
 }
+
+updateCartDisplay();
 </script>
 
 </body>
