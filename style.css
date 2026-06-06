@@ -1,37 +1,66 @@
 body {
   max-width: 900px;
   margin: auto;
-  font-family: sans-serif;
-  background: #fdf6f0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #fdf6f0, #fcefee);
+  padding: 10px;
 }
 
+/* ヘッダー */
 header {
-  background: #333;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
   color: white;
-  padding: 20px;
+  padding: 30px;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
+/* ギャラリー */
 .gallery {
   display: flex;
   gap: 20px;
   margin-top: 20px;
+  flex-wrap: wrap; /* スマホ対応 */
 }
 
+/* カード */
 .card {
   background: white;
-  padding: 10px;
-  border-radius: 10px;
+  padding: 15px;
+  border-radius: 15px;
   flex: 1;
+  min-width: 250px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
 }
 
+/* ホバーで浮く */
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* 画像・動画 */
 img, video {
   width: 100%;
   border-radius: 10px;
 }
 
+/* 画像ホバー */
 img:hover {
   transform: scale(1.05);
   transition: 0.3s;
+}
+
+/* タイトル */
+h3 {
+  margin-top: 10px;
+}
+
+/* スマホ用 */
+@media (max-width: 600px) {
+  header {
+    font-size: 14px;
+    padding: 20px;
+  }
 }
