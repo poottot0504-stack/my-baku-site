@@ -43,6 +43,22 @@
     <h3>羊とすやすや・・・</h3>
   </div>
 
+  <img src="dog2.jpg" onclick="openImage(this)">
+
+  <div id="modal" onclick="closeImage()">
+  <img id="modalImg">
+</div>
+<script>
+function openImage(img){
+  document.getElementById("modal").style.display = "block";
+  document.getElementById("modalImg").src = img.src;
+}
+
+function closeImage(){
+  document.getElementById("modal").style.display = "none";
+}
+</script>
+
 </div>
 
 </body>
