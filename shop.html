@@ -12,6 +12,12 @@
   <p>ログインした人だけが見られるページです</p>
 </header>
 
+<div class="cart">
+  🛒 カート：<span id="cart-count">0</span>個
+</div>
+
+<button onclick="resetCart()">🗑️ カートを空にする</button>
+
 <div class="gallery">
   <div class="card">
     <img src="dog.jpg">
@@ -27,9 +33,7 @@
     <button onclick="addCart()">カートに追加</button>
   </div>
 </div>
-<div class="cart">
-  🛒 カート：<span id="cart-count">0</span>個
-</div>
+
 <script>
 let cartCount = localStorage.getItem("cartCount");
 
@@ -47,13 +51,13 @@ function addCart() {
   document.getElementById("cart-count").textContent = cartCount;
   alert("カートに追加しました！");
 }
+
+function resetCart() {
+  cartCount = 0;
+  localStorage.setItem("cartCount", cartCount);
+  document.getElementById("cart-count").textContent = cartCount;
+}
 </script>
-
-<div class="cart">
-  🛒 カート：<span id="cart-count">0</span>個
-</div>
-
-<button onclick="resetCart()">🗑️ カートを空にする</button>
 
 </body>
 </html>
