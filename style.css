@@ -75,4 +75,36 @@ h3 {
   .gallery {
     flex-direction: column;
   }
+  .login-button,
+button {
+  display: inline-block;
+  background: #ff9a9e;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: none;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 15px 0;
+}
+
+.login-button:hover,
+button:hover {
+  opacity: 0.8;
+}
+
+.login-box {
+  max-width: 400px;
+  margin: 30px auto;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
 }
