@@ -63,4 +63,27 @@ h3 {
     font-size: 14px;
     padding: 20px;
   }
+
+  body {
+  max-width: 900px;
+  margin: auto;
+  font-family: sans-serif;
+  background: #fdf6f0;
+}
+
+.gallery {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+video {
+  width: 100%;
+  border-radius: 10px;
+}
 }
