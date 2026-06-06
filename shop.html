@@ -31,14 +31,25 @@
   🛒 カート：<span id="cart-count">0</span>個
 </div>
 <script>
-let cartCount = 0;
+let cartCount = localStorage.getItem("cartCount");
+
+if (cartCount === null) {
+  cartCount = 0;
+} else {
+  cartCount = Number(cartCount);
+}
+
+document.getElementById("cart-count").textContent = cartCount;
 
 function addCart() {
   cartCount++;
+  localStorage.setItem("cartCount", cartCount);
   document.getElementById("cart-count").textContent = cartCount;
   alert("カートに追加しました！");
 }
 </script>
+
+<button onclick="resetCart()">カートを空にする</button>
 
 </body>
 </html>
