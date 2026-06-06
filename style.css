@@ -108,4 +108,11 @@ video {
   display: block;
 }
 
+h1 {
+  font-size: 32px;
+  letter-spacing: 2px;
+}
+.card {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
 }
