@@ -2,37 +2,23 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>ばくショップ</title>
+  <title>カートの中身</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-  <h1>🛒 ばくショップ</h1>
-  <p>ログインした人だけが見られるページです</p>
+  <h1>🛒 カートの中身</h1>
+  <p>現在のカート状況</p>
 </header>
 
 <div class="cart">
-  🛒 カート：<span id="cart-count">0</span>個
+  カートの商品数：<span id="cart-count">0</span>個
 </div>
-<a href="cart.html" class="login-button">🛒 カートを見る</a>
-<button onclick="resetCart()">🗑️ カートを空にする</button>
 
-<div class="gallery">
-  <div class="card">
-    <img src="dog.jpg">
-    <h3>ばくポストカード</h3>
-    <p>¥300</p>
-    <button onclick="addCart()">カートに追加</button>
-  </div>
-
-  <div class="card">
-    <img src="dog2.jpg">
-    <h3>ばくステッカー</h3>
-    <p>¥300</p>
-    <button onclick="addCart()">カートに追加</button>
-  </div>
-</div>
+<a href="shop.html" class="login-button">
+  ← ショップに戻る
+</a>
 
 <script>
 let cartCount = localStorage.getItem("cartCount");
@@ -44,20 +30,7 @@ if (cartCount === null) {
 }
 
 document.getElementById("cart-count").textContent = cartCount;
-
-function addCart() {
-  cartCount++;
-  localStorage.setItem("cartCount", cartCount);
-  document.getElementById("cart-count").textContent = cartCount;
-  alert("カートに追加しました！");
-}
-
-function resetCart() {
-  cartCount = 0;
-  localStorage.setItem("cartCount", cartCount);
-  document.getElementById("cart-count").textContent = cartCount;
-}
-
 </script>
+
 </body>
 </html>
