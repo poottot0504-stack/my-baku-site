@@ -6,7 +6,6 @@ body {
   padding: 10px;
 }
 
-/* ヘッダー */
 header {
   background: linear-gradient(135deg, #ff9a9e, #fad0c4);
   color: white;
@@ -16,43 +15,48 @@ header {
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* ギャラリー */
+h1 {
+  font-size: 32px;
+  letter-spacing: 2px;
+}
+
 .gallery {
   display: flex;
   gap: 20px;
   margin-top: 20px;
-  flex-wrap: wrap; /* スマホ対応 */
+  flex-wrap: wrap;
 }
 
-/* カード */
 .card {
   background: white;
   padding: 15px;
   border-radius: 15px;
   flex: 1;
   min-width: 250px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   transition: 0.3s;
 }
 
-/* ホバーで浮く */
 .card:hover {
   transform: translateY(-5px);
 }
 
-/* 画像・動画 */
-img, video {
+img,
+video {
   width: 100%;
   border-radius: 10px;
 }
 
-/* 画像ホバー */
+.card img {
+  object-fit: cover;
+  height: 200px;
+}
+
 img:hover {
   transform: scale(1.05);
   transition: 0.3s;
 }
 
-/* タイトル */
 h3 {
   margin-top: 10px;
 }
@@ -64,55 +68,11 @@ h3 {
     padding: 20px;
   }
 
-  body {
-  max-width: 900px;
-  margin: auto;
-  font-family: sans-serif;
-  background: #fdf6f0;
-}
+  h1 {
+    font-size: 24px;
+  }
 
-.gallery {
-  display: flex;
-  gap: 20px;
-}
-
-.card {
-  background: white;
-  padding: 10px;
-  border-radius: 10px;
-}
-
-video {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.card img {
-  object-fit: cover;
-  height: 200px;
-}
-
-#modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.8);
-}
-
-#modal img {
-  max-width: 90%;
-  margin: 5% auto;
-  display: block;
-}
-
-h1 {
-  font-size: 32px;
-  letter-spacing: 2px;
-}
-.card {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
+  .gallery {
+    flex-direction: column;
+  }
 }

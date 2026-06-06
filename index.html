@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ばくの成長日記</title>
-
-  <!-- ⭐ ここ重要（headの中！） -->
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -17,47 +15,30 @@
 </header>
 
 <div class="gallery">
+
   <div class="card">
     <video controls playsinline muted loop>
       <source src="dog.mp4" type="video/mp4">
     </video>
     <h3>元気に遊ぶ</h3>
   </div>
-</div>
-<div class="gallery">
 
   <div class="card">
     <video controls playsinline muted loop>
-      <source src="dog2.mp4">
+      <source src="dog2.mp4" type="video/mp4">
     </video>
     <h3>ひまわり王子おねむ。。。</h3>
   </div>
 
   <div class="card">
-    <img src="dog.jpg">
+    <img src="dog.jpg" alt="初の桜">
     <h3>初の桜🌸</h3>
   </div>
 
   <div class="card">
-    <img src="dog2.jpg">
+    <img src="dog2.jpg" alt="羊とすやすや">
     <h3>羊とすやすや・・・</h3>
   </div>
-
-  <img src="dog2.jpg" onclick="openImage(this)">
-
-  <div id="modal" onclick="closeImage()">
-  <img id="modalImg">
-</div>
-<script>
-function openImage(img){
-  document.getElementById("modal").style.display = "block";
-  document.getElementById("modalImg").src = img.src;
-}
-
-function closeImage(){
-  document.getElementById("modal").style.display = "none";
-}
-</script>
 
 </div>
 
