@@ -107,4 +107,14 @@ input {
   border-radius: 10px;
   box-sizing: border-box;
 }
+.cart {
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  margin: 20px 0;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
 }
