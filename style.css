@@ -127,4 +127,23 @@ button:hover {
   .gallery {
     flex-direction: column;
   }
+  .card button {
+  width: 100%;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 999px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card button:hover {
+  transform: scale(1.05);
+}
+
+.card button:active {
+  transform: scale(0.95);
+}
 }
