@@ -20,21 +20,7 @@
 <a href="cart.html" class="login-button">🛒 カートを見る</a>
 <button onclick="resetCart()">🗑️ カートを空にする</button>
 
-<div class="gallery">
-  <div class="card">
-    <img src="dog.jpg">
-    <h3>ばくポストカード</h3>
-    <p>¥300</p>
-    <button onclick="addCart('ばくポストカード', 300)">カートに追加</button>
-  </div>
-
-  <div class="card">
-    <img src="dog2.jpg">
-    <h3>ばくステッカー</h3>
-    <p>¥300</p>
-    <button onclick="addCart('ばくステッカー', 300)">カートに追加</button>
-  </div>
-</div>
+<div class="gallery" id="product-list"></div>
 
 <script>
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -77,6 +63,25 @@ function resetCart() {
     updateCartDisplay();
   }
 }
+
+fetch("products.json")
+  .then(response => response.json())
+  .then(products => {
+    const productList = document.getElementById("product-list");
+
+    products.forEach(product => {
+      productList.innerHTML += `
+        <div class="card">
+          <img src="${product.image}">
+          <h3>${product.name}</h3>
+          <p>¥${product.price}</p>
+          <button onclick="addCart('${product.name}', ${product.price})">
+            カートに追加
+          </button>
+        </div>
+      `;
+    });
+  });
 
 updateCartDisplay();
 </script>
