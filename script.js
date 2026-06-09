@@ -4,4 +4,6 @@ function resetCart() {
     localStorage.setItem("cart", JSON.stringify(cart));
     updateCartDisplay();
   }
+  document.getElementById("welcome-user").textContent =
+  localStorage.getItem("username");
 }
