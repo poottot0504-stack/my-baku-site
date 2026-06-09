@@ -1,0 +1,17 @@
+[
+  {
+    "name": "ばくポストカード",
+    "price": 300,
+    "image": "dog.jpg"
+  },
+  {
+    "name": "ばくステッカー",
+    "price": 300,
+    "image": "dog2.jpg"
+  },
+  {
+  "name": "ばくマグカップ",
+  "price": 1500,
+  "image": "dog.jpg"
+}
+]
