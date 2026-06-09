@@ -24,7 +24,8 @@
     </video>
     <h3>元気に遊ぶ</h3>
     <button onclick="likePost('dog1')">
-      ❤️ いいね <span id="like-dog1">0</span>
+      <span id="heart-dog1">🤍</span>
+      いいね <span id="like-dog1">0</span>
     </button>
   </div>
 
@@ -34,7 +35,8 @@
     </video>
     <h3>ひまわり王子おねむ。。。</h3>
     <button onclick="likePost('dog2')">
-      ❤️ いいね <span id="like-dog2">0</span>
+      <span id="heart-dog2">🤍</span>
+      いいね <span id="like-dog2">0</span>
     </button>
   </div>
 
@@ -42,7 +44,8 @@
     <img src="dog.jpg" alt="今年初の桜">
     <h3>初の桜🌸</h3>
     <button onclick="likePost('dog3')">
-      ❤️ いいね <span id="like-dog3">0</span>
+      <span id="heart-dog3">🤍</span>
+      いいね <span id="like-dog3">0</span>
     </button>
   </div>
 
@@ -50,7 +53,8 @@
     <img src="dog2.jpg" alt="羊とすやすや">
     <h3>羊とすやすや・・・</h3>
     <button onclick="likePost('dog4')">
-      ❤️ いいね <span id="like-dog4">0</span>
+      <span id="heart-dog4">🤍</span>
+      いいね <span id="like-dog4">0</span>
     </button>
   </div>
 
@@ -70,13 +74,29 @@ localStorage.setItem("visits", visits);
 document.getElementById("visit-count").textContent = visits;
 
 function likePost(id) {
+  let liked = localStorage.getItem(id + "-liked");
   let count = Number(localStorage.getItem(id)) || 0;
 
-  count++;
+  if (liked === "true") {
+    count--;
+    localStorage.setItem(id + "-liked", "false");
+  } else {
+    count++;
+    localStorage.setItem(id + "-liked", "true");
+  }
+
+  if (count < 0) {
+    count = 0;
+  }
 
   localStorage.setItem(id, count);
 
   document.getElementById("like-" + id).textContent = count;
+
+  const heart = document.getElementById("heart-" + id);
+  if (heart) {
+    heart.textContent = localStorage.getItem(id + "-liked") === "true" ? "❤️" : "🤍";
+  }
 }
 
 function showLikes() {
@@ -84,10 +104,17 @@ function showLikes() {
 
   ids.forEach(id => {
     const count = Number(localStorage.getItem(id)) || 0;
-    const target = document.getElementById("like-" + id);
+    const liked = localStorage.getItem(id + "-liked") === "true";
 
-    if (target) {
-      target.textContent = count;
+    const likeTarget = document.getElementById("like-" + id);
+    const heartTarget = document.getElementById("heart-" + id);
+
+    if (likeTarget) {
+      likeTarget.textContent = count;
+    }
+
+    if (heartTarget) {
+      heartTarget.textContent = liked ? "❤️" : "🤍";
     }
   });
 }
