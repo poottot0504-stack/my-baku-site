@@ -6,18 +6,10 @@
   <title>ばくの成長日記</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<a href="login.html" class="login-button">ショップへログイン</a>
-<script>
-let visits = Number(localStorage.getItem("visits")) || 0;
-
-visits++;
-
-localStorage.setItem("visits", visits);
-
-document.getElementById("visit-count").textContent = visits;
-</script>
 
 <body>
+
+<a href="login.html" class="login-button">ショップへログイン</a>
 
 <header>
   <h1>🐶 ばくの成長日記 🐶</h1>
@@ -25,7 +17,6 @@ document.getElementById("visit-count").textContent = visits;
 </header>
 
 <div class="gallery">
-
   <div class="card">
     <video controls playsinline muted loop>
       <source src="dog.mp4" type="video/mp4">
@@ -41,7 +32,7 @@ document.getElementById("visit-count").textContent = visits;
   </div>
 
   <div class="card">
-    <img src="dog.jpg" alt="初の桜">
+    <img src="dog.jpg" alt="今年初の桜">
     <h3>初の桜🌸</h3>
   </div>
 
@@ -49,10 +40,21 @@ document.getElementById("visit-count").textContent = visits;
     <img src="dog2.jpg" alt="羊とすやすや">
     <h3>羊とすやすや・・・</h3>
   </div>
+</div>
 
-</div>
 <div class="cart">
-  👀 訪問回数：<span id="visit-count">0</span>
+  👀 訪問回数：<span id="visit-count">0</span>回
 </div>
+
+<script>
+let visits = Number(localStorage.getItem("visits")) || 0;
+
+visits++;
+
+localStorage.setItem("visits", visits);
+
+document.getElementById("visit-count").textContent = visits;
+</script>
+
 </body>
 </html>
