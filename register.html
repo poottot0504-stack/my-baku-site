@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>会員登録</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>🐶 ばくショップ 会員登録</h1>
+</header>
+
+<div class="card login-box">
+  <input type="text" id="newUsername" placeholder="ユーザー名">
+  <input type="password" id="newPassword" placeholder="パスワード">
+  <button onclick="register()">登録する</button>
+</div>
+
+<a href="login.html" class="login-button">ログイン画面へ</a>
+
+<script>
+function register() {
+  const username = document.getElementById("newUsername").value;
+  const password = document.getElementById("newPassword").value;
+
+  if (username === "" || password === "") {
+    alert("ユーザー名とパスワードを入力してください");
+    return;
+  }
+
+  localStorage.setItem("username", username);
+  localStorage.setItem("password", password);
+
+  alert("会員登録が完了しました！");
+  location.href = "login.html";
+}
+</script>
+
+</body>
+</html>
